@@ -1,14 +1,10 @@
 #include "libcommon/buffer-pool.h"
 
-#include "uv.h"
-
 KU_NS_LEFT
 namespace common
 {
 
 #define BUFFER_CACHE_ENABLE 1
-
-struct ku_buf_t : public uv_buf_t {};
 
 struct buffer {
 	size_t size;

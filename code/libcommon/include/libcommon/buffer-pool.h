@@ -9,8 +9,12 @@ KU_NS_LEFT
 namespace common
 {
 
-struct ku_buf_t;
 struct buffer;
+
+typedef struct ku_buf_t {
+	char *base;
+	size_t len;
+} ku_buf_t;
 
 class buffer_pool {
 public:
