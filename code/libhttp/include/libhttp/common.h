@@ -16,7 +16,6 @@
 #include <algorithm>
 
 KU_NS_LEFT
-
 namespace http
 {
 

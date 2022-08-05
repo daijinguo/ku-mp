@@ -1,6 +1,7 @@
 #include "loop-impl.h"
 #include "libcommon/loop.h"
 
+#include <assert.h>
 #include <stdlib.h>
 #include <mutex>
 
