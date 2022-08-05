@@ -131,3 +131,6 @@ releases/
 *.swp
 *.vim
 tags
+
+# build #
+build/
