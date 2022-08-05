@@ -1,0 +1,32 @@
+include(ExternalProject)
+ExternalProject_Add(libuv_external
+    URL
+        ${CMAKE_CURRENT_SOURCE_DIR}/../libuv-1.44.1.tar.gz
+    URL_HASH
+        MD5=805a4b4eced77e006aa55bdc4e068a85
+    SOURCE_DIR
+        ${DIR_EP_BASE}/Download/libuv_external
+    UPDATE_COMMAND
+        ""
+    CMAKE_ARGS
+        ${ANDROID_CMAKE_ARGS}
+        -DCMAKE_INSTALL_PREFIX=${STAGED_INSTALL_PREFIX}
+        -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+        -DLIBUV_BUILD_TESTS=OFF
+    #CMAKE_CACHE_ARGS
+    #    -DCMAKE_CXX_FLAGS:STRING=${CMAKE_CXX_FLAGS}
+    TEST_AFTER_INSTALL
+        0
+    BUILD_IN_SOURCE
+        0
+    DOWNLOAD_NO_PROGRESS
+        1
+    LOG_CONFIGURE
+        1
+    LOG_BUILD
+        0
+    LOG_INSTALL
+        1
+    BUILD_ALWAYS
+        0
+)

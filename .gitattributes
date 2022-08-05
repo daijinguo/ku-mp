@@ -1,0 +1,10 @@
+.clang-format    eol=lf
+.gitignore       eol=lf
+.gitattributes   eol=lf
+CMakeLists.txt   eol=lf
+
+*.h     eol=lf
+*.hpp   eol=lf
+*.c     eol=lf
+*.cc    eol=lf
+*.cpp   eol=lf

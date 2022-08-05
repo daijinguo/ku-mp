@@ -1,0 +1,33 @@
+include(ExternalProject)
+ExternalProject_Add(sdl2_external
+    URL
+        ${CMAKE_CURRENT_SOURCE_DIR}/../SDL2-2.0.22.zip
+    URL_HASH
+        MD5=334ba533f297ba29de89e4528e534cb1
+    SOURCE_DIR
+        ${DIR_EP_BASE}/Download/sdl2_external
+    UPDATE_COMMAND
+        ""
+    CMAKE_ARGS
+        ${ANDROID_CMAKE_ARGS}
+        -DCMAKE_INSTALL_PREFIX=${STAGED_INSTALL_PREFIX}
+        -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+        -DSDL_CMAKE_DEBUG_POSTFIX=""
+        -DSDL_SHARED=OFF
+        -DSDL_STATIC=ON
+        -DSDL_TEST=OFF
+    TEST_AFTER_INSTALL
+        0
+    BUILD_IN_SOURCE
+        0
+    DOWNLOAD_NO_PROGRESS
+        1
+    LOG_CONFIGURE
+        1
+    LOG_BUILD
+        0
+    LOG_INSTALL
+        1
+    BUILD_ALWAYS
+        0
+)

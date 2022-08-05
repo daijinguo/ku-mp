@@ -1,0 +1,17 @@
+
+SET(CMAKE_CXX_STANDARD 17)
+
+AUX_SOURCE_DIRECTORY(include src_files)
+AUX_SOURCE_DIRECTORY(src src_files)
+
+ADD_LIBRARY(http SHARED ${src_files})
+TARGET_INCLUDE_DIRECTORIES(http PUBLIC include ${STAGED_INSTALL_PREFIX}/include ${CODE_ROOT_DIR}/libcommon/include)
+TARGET_LINK_DIRECTORIES(http PUBLIC ${STAGED_INSTALL_PREFIX}/lib)
+TARGET_LINK_LIBRARIES(http uv common)
+ADD_DEPENDENCIES(http libuv_external common)
+
+ADD_LIBRARY(http_a STATIC ${src_files})
+TARGET_INCLUDE_DIRECTORIES(http_a PUBLIC include ${STAGED_INSTALL_PREFIX}/include ${CODE_ROOT_DIR}/libcommon/include)
+TARGET_LINK_DIRECTORIES(http_a PUBLIC ${STAGED_INSTALL_PREFIX}/lib)
+TARGET_LINK_LIBRARIES(http_a uv_a common_a)
+ADD_DEPENDENCIES(http_a libuv_external common_a)
