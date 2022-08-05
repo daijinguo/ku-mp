@@ -4,14 +4,19 @@ SET(CMAKE_CXX_STANDARD 17)
 AUX_SOURCE_DIRECTORY(include src_files)
 AUX_SOURCE_DIRECTORY(src src_files)
 
+# shared library
 ADD_LIBRARY(common SHARED ${src_files})
+ADD_DEPENDENCIES(common libuv_external)
+
 TARGET_INCLUDE_DIRECTORIES(common PUBLIC include ${STAGED_INSTALL_PREFIX}/include)
 TARGET_LINK_DIRECTORIES(common PUBLIC ${STAGED_INSTALL_PREFIX}/lib)
 TARGET_LINK_LIBRARIES(common uv)
-ADD_DEPENDENCIES(common libuv_external)
 
+
+# static library
 ADD_LIBRARY(common_a STATIC ${src_files})
+ADD_DEPENDENCIES(common_a libuv_external)
+
 TARGET_INCLUDE_DIRECTORIES(common_a PUBLIC include ${STAGED_INSTALL_PREFIX}/include)
 TARGET_LINK_DIRECTORIES(common_a PUBLIC ${STAGED_INSTALL_PREFIX}/lib)
 TARGET_LINK_LIBRARIES(common_a uv_a)
-ADD_DEPENDENCIES(common_a libuv_external)
